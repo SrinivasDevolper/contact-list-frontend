@@ -22,7 +22,7 @@ function APP() {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/contacts?page=${page}&limit=${limit}`
+        `https://contact-list-backend-5qqv.onrender.com/api/contacts?page=${page}&limit=${limit}`
       );
 
       if (res.status !== 200) {
@@ -49,7 +49,10 @@ function APP() {
 
   const addFormData = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/contact", form);
+      const res = await axios.post(
+        "https://contact-list-backend-5qqv.onrender.com/api/contact",
+        form
+      );
       if (res.status === 201) {
         setForm({ name: "", email: "", phone: "" });
         setAdd(false);
@@ -66,7 +69,9 @@ function APP() {
 
   const deleteButton = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/contact/${id}`);
+      const res = await axios.delete(
+        `https://contact-list-backend-5qqv.onrender.com/api/contact/${id}`
+      );
       if (res.status === 200) {
         if (contacts.length === 1) {
           console.log("Last contact on page deleted");
